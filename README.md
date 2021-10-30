@@ -1,1 +1,1 @@
-# COSC 4351- Project
+# COSC 4351 Project
