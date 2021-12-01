@@ -1,7 +1,14 @@
-import React from 'react'
-
+import React, { useState } from 'react';
+import { render } from 'react-dom';
+import Calendar from 'react-calendar';
 
 export const ReserveTable = () => {
+    const [date, setDate] = useState(new Date());
+
+    const onChange = date => {
+        setDate(date);
+    };
+
     return (
         <div className=" d-flex justify-content-center align-items-center container-lg ">
 
@@ -34,11 +41,22 @@ export const ReserveTable = () => {
                     </div>
                 </div>
 
+                <div class="container" text-align="center">
+                    <Calendar onChange={onChange} value={date} />
+                    {console.log(date)}
+                    {date.toString()}
+
+                </div>
+
                 <div className="col-12">
                     <button type="submit" className="btn btn-primary">Submit</button>
                 </div>
+
             </form>
+
 
         </div>
     )
 }
+render(<ReserveTable/>, document.querySelector("#root"));
+
