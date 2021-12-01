@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom'
 export default function Home() {
     return (
         <Hero>
-            <Banner title = "luxurious rooms"subtitle ="deluxe rooms starting at $299">
+            <Banner title = "Restaurant"subtitle ="reserve your table now!">
                 <Link to='/Reserve' className="btn-primary">
-                    our rooms
+                    Get started
                 </Link>
             </Banner>
         </Hero>
