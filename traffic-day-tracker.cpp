@@ -24,7 +24,7 @@ void checkingTrafficDay(string d)
     if(d == "Friday" || d == "Saturday" || d == "Sunday" || d == "friday" || d == "saturday" || d == "sunday")
     {
         stringstream boxMessage;
-        boxMessage << "This day is a high traffic day and would cost $10 to reserve.\nWould you like to proceed?";
+        boxMessage << d << " is a high traffic day and would cost $10 to reserve.\nWould you like to proceed?";
 
         int btn = MessageBox(0,boxMessage.str().c_str(), "Message",MB_YESNO + MB_ICONQUESTION);
         if (btn == IDYES)
