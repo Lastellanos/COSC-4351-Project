@@ -44,7 +44,10 @@ int main()
         {
            // rest[i].section = 1;
             if (i <= 7)
+            {
                 rest[i].tSize = 1;
+                rest[4].reserved = false;
+            }
             else    
                 rest[i].tSize = 4;
         }
@@ -156,13 +159,13 @@ void cancel(Table r[], int s)
     if (btn == IDYES)
     {
         cout << "reservation canceled\n"; //recursion to try again? ask to cancel?
-        return;
+        exit(0);
     }
     else
     {
         cout << "reservation not canceled\n";
         tableR(r,s);
-        exit(0);
+        return;
 
         //return;
         //confirm(r,s);
