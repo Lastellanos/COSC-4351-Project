@@ -84,7 +84,7 @@ public class trafficDayTracker
         Locale local = new Locale("ENGLISH", "US");
 
         //System.out.print("Enter a string: ");                                               //String sDate1 = "2021-12-01";
-        String sDate1= sc.nextLine(); //reads string ;
+        String sDate1= sc.nextLine(); //reads string ; //must be in yyyy-mm-dd format or it will not read
         sc.close();   
 
         LocalDate date1 = LocalDate.parse(sDate1);                                          //, DateTimeFormatter.ofPattern("dd/MM/uuuu"));
