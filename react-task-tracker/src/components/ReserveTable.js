@@ -1,9 +1,32 @@
 import React, { useState } from 'react';
+import Axios from 'axios'
 import { render } from 'react-dom';
 import Calendar from 'react-calendar';
 import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
-export const ReserveTable = () => {
+function ReserveTable() {
+    const [firstname, setfirstname] = useState("");
+    const [lastname, setlastname] = useState("");
+    const [email, setemail] = useState("");
+    const [phone, setphone] = useState("");
+    const [numGuests, setnumGuests] = useState("");
+    const [time, settime] = useState("");
+
+    const register = () => {
+        Axios.post('http://localhost3001/register', {
+            firstname: setfirstname,
+            lastname : setlastname,
+            email : setemail,
+            phone : setphone,
+            numGuests : setnumGuests,
+            time : settime,
+        }).then((response)=> {
+            console.log(response);
+        })
+    }
+}
+
+export const Reserve = () => {
 
 
     const [date, setDate] = useState(new Date());
@@ -103,14 +126,16 @@ export const ReserveTable = () => {
                     </div>
                 </div>
 
+                <button onClick={Reserve}> Reserve Table </button>
+
                 <div className="col-12">
                     <p />
                     <button type="submit" className="btn btn-primary">Submit</button>
+                    
                     <p />
                 </div>
 
             </form>
-
 
         </div>
     )
