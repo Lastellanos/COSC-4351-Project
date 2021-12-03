@@ -4,6 +4,7 @@ import './index.css';
 import { BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'react-calendar/dist/Calendar.css';
 
 ReactDOM.render(
   <Router>
