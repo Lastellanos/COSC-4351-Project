@@ -27,7 +27,7 @@ app.post('/reserve' , (req, res)=> {
 
     console.log("hello world")
     console.log(req.body);
-
+ 
     db.query("INSERT INTO table_reservation (first_name, phone_number, email, date, time, number_of_seats, last_name, availability) VALUES (? , ?, ?, ?, ?, ?, ?, ?)", 
         [firstName, phone, email, date, time, numGuests, availability, lastName], 
         (err, result)=> {
