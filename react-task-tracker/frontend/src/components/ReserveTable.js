@@ -8,44 +8,31 @@ import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 const ReserveTable = () => {
 
-    const [firstname, setfirstname] = useState("");
-    const [lastname, setlastname] = useState("");
-    const [email, setemail] = useState("");
-    const [phone, setphone] = useState("");
-    const [numGuests, setnumGuests] = useState("");
-    const [time, settime] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [numGuests, setNumGuests] = useState(0);
+    const [time, setTime] = useState("");
+    const [date, setDate] = useState(new Date());
 
     const reserve = () => {
-        Axios.post('http://localhost3001/register', {
-            firstname: setfirstname,
-            lastname : setlastname,
-            email : setemail,
-            phone : setphone,
-            numGuests : setnumGuests,
-            time : settime,
+        Axios.post('http://localhost:3001/reserve', {
+            firstName: firstName,
+            lastLame : lastName,
+            email : email,
+            phone : phone,
+            numGuests : numGuests,
+            time : time,
+            date: date
         }).then((response)=> {
             console.log(response);
         })
     }
-    const [date, setDate] = useState(new Date());
 
 
-    const onChange = date => {
-        setDate(date);
-    };//
-
-    const [values, setValues] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        numGuests: 0,
-        time: ""
-        //date: ""
-
-    })
     const handleFirstNameInputChange = (event) => {
-        setValues({ ...values, firstName: event.target.value })
+        setFirstName({ ...firstName, firstName: event.target.value })
         //console.log(event.targer.value)
     }
     const handle = (e) => {
@@ -54,23 +41,23 @@ const ReserveTable = () => {
     }
     //console.log(event.targer.value)
     const handleLastNameInputChange = (event) => {
-        setValues({ ...values, lastName: event.target.value })
+        setLastName({ ...lastName, lastName: event.target.value })
     }
     const handleEmailInputChange = (event) => {
-        setValues({ ...values, email: event.target.value })
+        setEmail({ ...email, email: event.target.value })
     }
     const handlePhoneInputChange = (event) => {
-        setValues({ ...values, phone: event.target.value })
+        setPhone({ ...phone, phone: event.target.value })
     }
     const handleNumGuestInputChange = (event) => {
-        setValues({ ...values, numGuests: event.target.value })
+        setNumGuests({ ...numGuests, numGuests: event.target.value })
     }
     const handleTimeInputChange = (event) => {
-        setValues({ ...values, time: event.target.value })
+        setTime({ ...time, time: event.target.value })
     }
-    const handleDateInputChange = (event) => {
-        setValues({ ...values, date: event.target.value })
-    }
+    const onChange = date => {
+        setDate(date);
+    };//
     const [submitted, setSubmitted] = useState(false);
 
     return (
@@ -80,25 +67,29 @@ const ReserveTable = () => {
                 <div class="row">
                     <div class="col">
                         <label htmlFor="inputFirst4" className="form-label">First Name</label>
-                        <input onChange={handleFirstNameInputChange} value={values.firstName}
+                        <input onChange={(e) => {setFirstName(e.target.value);
+                        }} 
                             type="text" className="form-control" id="inputFirst4" />
 
                     </div>
                     <div class="col">
                         <label htmlFor="inputLast4" className="form-label">Last Name</label>
-                        <input onChange={handleLastNameInputChange} value={values.lastName}
+                        <input onChange={(e) => {setLastName(e.target.value);
+                        }}
                             type="text" className="form-control" id="inputLast4" />
                     </div>
                 </div>
                 <div class="row">
                     <div className="col">
                         <label htmlFor="inputEmail4" className="form-label">Email</label>
-                        <input onChange={handleEmailInputChange} value={values.email}
+                        <input onChange={(e) => {setEmail(e.target.value);
+                        }}
                             type="email" className="form-control" id="inputEmail4" />
                     </div>
                     <div class="col">
                         <label htmlFor="inputPhone4" className="form-label">Phone Number</label>
-                        <input onChange={handlePhoneInputChange} value={values.phone}
+                        <input onChange={(e) => {setPhone(e.target.value);
+                        }}
                             type="text" className="form-control" id="inputPhone4" />
                     </div>
                 </div>
@@ -106,11 +97,13 @@ const ReserveTable = () => {
                     <div className="col">
                         <label htmlFor="inputGuestNum4" className="form-label mb-3">Number of Guests</label>
                         <br></br>
-                        <input onChange={handleNumGuestInputChange} value={values.numGuests} type="number" id="inputGuestNum4" min="1" data-bind="value:replyNumber" />
+                        <input onChange={(e) => {setNumGuests(e.target.value);
+                        }} type="number" id="inputGuestNum4" min="1" data-bind="value:replyNumber" />
                     </div>
                     <div className="col">
                         <label htmlFor="time" className="form-label mb-3">Time</label>
-                        <TimePickerComponent id="time" onChange={handleTimeInputChange} defaultValue={values.time} />
+                        <TimePickerComponent id="time" onChange={(e) => {setTime(e.target.value);
+                        }} />
                     </div>
 
                 </div>
