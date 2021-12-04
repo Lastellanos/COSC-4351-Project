@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Hero from '../components/Hero';
 import Banner from '../components/Banner';
-import { ReserveTable } from '../components/ReserveTable';
+import ReserveTable from '../components/ReserveTable';
 import {Link} from 'react-router-dom'
 export default class Reserve extends Component {
     render() {

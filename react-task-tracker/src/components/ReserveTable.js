@@ -4,7 +4,12 @@ import { render } from 'react-dom';
 import Calendar from 'react-calendar';
 import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
-function ReserveTable() {
+
+
+const ReserveTable = () => {
+
+
+
     const [firstname, setfirstname] = useState("");
     const [lastname, setlastname] = useState("");
     const [email, setemail] = useState("");
@@ -12,7 +17,7 @@ function ReserveTable() {
     const [numGuests, setnumGuests] = useState("");
     const [time, settime] = useState("");
 
-    const register = () => {
+    const reserve = () => {
         Axios.post('http://localhost3001/register', {
             firstname: setfirstname,
             lastname : setlastname,
@@ -24,11 +29,6 @@ function ReserveTable() {
             console.log(response);
         })
     }
-}
-
-export const Reserve = () => {
-
-
     const [date, setDate] = useState(new Date());
 
 
@@ -126,7 +126,7 @@ export const Reserve = () => {
                     </div>
                 </div>
 
-                <button onClick={Reserve}> Reserve Table </button>
+                <button onClick={reserve}> Reserve Table </button>
 
                 <div className="col-12">
                     <p />
@@ -140,5 +140,6 @@ export const Reserve = () => {
         </div>
     )
 }
+export default ReserveTable;
 //render(<ReserveTable />, document.querySelector("#root"));
 
