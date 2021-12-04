@@ -8,8 +8,6 @@ import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
 
 const ReserveTable = () => {
 
-
-
     const [firstname, setfirstname] = useState("");
     const [lastname, setlastname] = useState("");
     const [email, setemail] = useState("");
