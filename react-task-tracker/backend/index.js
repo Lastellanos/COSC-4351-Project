@@ -10,7 +10,7 @@ const db = mysql.createConnection({
     user: "root",
     host: "localhost",
     password: "password",
-    database: "RestaurantApp",
+    database: "tables",
 });
 console.log("hello world")
 
@@ -23,11 +23,13 @@ app.post('/reserve' , (req, res)=> {
     const numGuests = req.body.numGuests;
     const time = req.body.time;
     const date = req.body.date;
+    const availability = 0;
+
     console.log("hello world")
     console.log(req.body);
 
-    db.query("INSERT INTO table_reservation (name, phone_number, email, date, time, number_of_seats, availability VALUES (? , ?)", 
-        [name, phone_number, email, date, time, number_of_seats, availability], 
+    db.query("INSERT INTO table_reservation (first_name, phone_number, email, date, time, number_of_seats, last_name, availability) VALUES (? , ?, ?, ?, ?, ?, ?, ?)", 
+        [firstName, phone, email, date, time, numGuests, availability, lastName], 
         (err, result)=> {
             console.log(err);
         }
